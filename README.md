@@ -1,5 +1,11 @@
-# GIT demostrations and teamwork
+# GIT project
 
+Showing ...
 
-Showing git local and remote capabilities
-"# linuxux" 
+##Author
+
+Ulyana Ishumbaeva
+
+## Age
+
+18

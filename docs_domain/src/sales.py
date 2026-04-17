@@ -1,25 +1,36 @@
 # TODO refactor this module using buisness logic names
+    
 
+def _parse_record(line:str) -> dict | None:
+    """Parses one record from sales files:
 
-def _row(x):
-    # x is one line from file
-    p = x.strip().split(",")  # split by comma
-    if len(p) != 4:  # if line is bad
-        return None  # return nothing
+    Parameters:
+        line - one record about sales `product_nam, category,unit_price,quantity`
+    
+    Returns:
+        Sales information in form dict
+    """
+    sale = line.strip().split(",")
+    if len(sale) != 4:  # according specs all sales have 4cols
+        return None 
 
-    n = p[0]  # product name
-    c = p[1]  # product category
-    a = float(p[2])  # price of one item
-    q = int(p[3])  # amount of items
+    product_name = sale[0]  
+    category = sale[1] 
+    try:
+        unit_price = float(sale[2]) 
+        quantity = int(sale[3])
+        if quantity != sale[3]: #according specs quantity is always integer
+            return None
+    except ValueError:
+        return None
 
-    return {"n": n, "c": c, "a": a, "q": q}  # make dict
-
+    return {"product_name": product_name, "category": category, "unit_price": unit_price, "quantity": quantity}
 
 def read_data(path):
     res = []  # final list
     with open(path, "r", encoding="utf-8") as f:  # open file
         for x in f:  # go over lines
-            r = _row(x)  # convert line to dict
+            r = _parse_record(x)  # convert line to dict
             if r is not None:  # if parsing was ok
                 res.append(r)  # add to result
     return res  # return result
@@ -70,4 +81,3 @@ def report(ds):
 def write_report(path, txt):
     # TODO better errors
     with open(path, "w", encoding="utf-8") as f:  # open file for writing
-        f.write(txt)  # write text
