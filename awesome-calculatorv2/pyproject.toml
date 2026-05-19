@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "awesome-calculator-ratovskiy-v2"
+version = "0.2.0"
+authors = [
+    {name = "Ratovskiy", email = "ratovskiy@example.com"}
+]
+description = "A simple calculator package for demonstration purposes (v2)"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+]
+keywords = ["calculator", "math", "demo"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/coffeho/linuxux/tree/feature/pypi-calculator-package/awesome-calculatorv2"
+"Bug Tracker" = "https://github.com/coffeho/linuxux/issues"
+"Repository" = "https://github.com/coffeho/linuxux"
+"Source Code" = "https://github.com/coffeho/linuxux/tree/feature/pypi-calculator-package/awesome-calculatorv2"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
