@@ -1,0 +1,18 @@
+[project]
+name = "python_pipeline"
+version = "0.1.0"
+dependencies = [
+    "requests>=2.31.0",
+    "numpy>=1.26.0",
+    "fastapi>=0.110.0"
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.9.0",
+    "black>=24.2.0",
+    "types-requests>=2.31.0.20240406"
+]
+
+[tool.black]
+line-length = 88

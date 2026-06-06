@@ -1,0 +1,16 @@
+# Виртуальное окружение
+.venv/
+venv/
+ENV/
+
+# Кэш Python и инструментов автоматизации
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Сборка и дистрибутивы
+build/
+dist/
+*.egg-info/
